@@ -12,6 +12,7 @@
     <artifactId>gateway-1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>gateway-1</name>
+
     <description>gateway-1</description>
     <properties>
         <java.version>1.8</java.version>
