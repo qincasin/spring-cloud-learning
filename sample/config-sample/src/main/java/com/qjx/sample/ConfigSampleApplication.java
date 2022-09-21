@@ -4,9 +4,9 @@ import com.qjx.sample.demo.Cat;
 import com.qjx.sample.demo.Dog;
 import com.qjx.sample.demo.Mouse;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Import;
  */
 @SpringBootApplication
 @Import({Dog.class, Cat.class})
+@AutoConfigureAfter(Dog.class)
 public class ConfigSampleApplication {
 
     public static void main(String[] args) {
