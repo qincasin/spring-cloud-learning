@@ -31,29 +31,29 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 @EnableDiscoveryClient
 @Configuration
 public class NacosDiscoveryConfiguration {
-//    /**
-//     * 注入WebMvcRegistrations
-//     * <p>
-//     * 防止对Feign声明接口作二次注册
-//     *
-//     * @return
-//     */
-//    @Bean
-////    @ConditionalOnClass(value = {WebMvcRegistrations.class, EnableFeignClients.class})
+    /**
+     * 注入WebMvcRegistrations
+     * <p>
+     * 防止对Feign声明接口作二次注册
+     *
+     * @return
+     */
+    @Bean
+    @ConditionalOnClass(value = {WebMvcRegistrations.class, EnableFeignClients.class})
 //    @ConditionalOnClass(name = {"org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations", "org.springframework.cloud.openfeign.EnableFeignClients"})
-//    public WebMvcRegistrations feignWebRegistrations() {
-//        return new WebMvcRegistrations() {
-//            @Override
-//            public RequestMappingHandlerMapping getRequestMappingHandlerMapping() {
-//                return new RequestMappingHandlerMapping() {
-//                    @Override
-//                    protected boolean isHandler(Class<?> beanType) {
-//                        System.out.println("111111111111111");
-//                        // 当使用EnableFeignClients时，SpringMVC防止对RequestMapping接口二次处理
-//                        return super.isHandler(beanType) && !beanType.isInterface();
-//                    }
-//                };
-//            }
-//        };
-//    }
+    public WebMvcRegistrations feignWebRegistrations() {
+        return new WebMvcRegistrations() {
+            @Override
+            public RequestMappingHandlerMapping getRequestMappingHandlerMapping() {
+                return new RequestMappingHandlerMapping() {
+                    @Override
+                    protected boolean isHandler(Class<?> beanType) {
+                        System.out.println("111111111111111");
+                        // 当使用EnableFeignClients时，SpringMVC防止对RequestMapping接口二次处理
+                        return super.isHandler(beanType) && !beanType.isInterface();
+                    }
+                };
+            }
+        };
+    }
 }

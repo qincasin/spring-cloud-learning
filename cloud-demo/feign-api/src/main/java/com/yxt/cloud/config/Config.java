@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
  * @since: 2019/12/30-14:33
  * @version: v1.0
  */
-@Configuration("Feign-APIConfig")
+@Configuration
 @EnableFeignClients("com.yxt")
 public class Config {
 //    /**

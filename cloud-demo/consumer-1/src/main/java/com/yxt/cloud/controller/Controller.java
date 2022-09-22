@@ -4,6 +4,7 @@ import com.yxt.cloud.client.Consumer2API;
 import com.yxt.cloud.util.HttpUtils;
 import org.apache.http.NoHttpResponseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +17,7 @@ public class Controller {
 
     @Autowired
     private HttpUtils httpUtils;
-    @PostMapping("/test")
+    @GetMapping("/test")
     public String test() throws NoHttpResponseException {
         consumer2API.getConsumer();
 //        restPost();
